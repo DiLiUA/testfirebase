@@ -14,3 +14,8 @@ install:
 after_success:
   - firebase deploy --token $test
 
+cache:
+  apt: true
+  npm: true
+  directories:
+    - node_modules
