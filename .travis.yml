@@ -13,7 +13,8 @@ install:
   - npm install -g firebase-tools
   - npm install -g angular-cli
 after_success:
-  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo -e "Deploy to firebase" firebase deploy --token $test;
+  - firebase deploy --token $test;
+  - echo $TRAVIS_BRANCH
 
 cache:
   apt: true
