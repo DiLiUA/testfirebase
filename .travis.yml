@@ -14,4 +14,4 @@ install:
   - npm install -g angular-cli
 after_success:
   - echo "Deploing to firebase!"
-  - if [ "$TRAVIS_BRANCH" == "develop" ]; then firebase deploy --token $test; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then firebase deploy --token $test; fi
