@@ -4,6 +4,7 @@ node_js:
 branches:
   only:
     - master
+    - /^feat-.*$/
 script:
   - echo "Deploing!"
   - npm install
@@ -12,7 +13,7 @@ install:
   - npm install -g firebase-tools
   - npm install -g angular-cli
 after_success:
-  - firebase deploy --token $test
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo -e "Deploy to firebase" firebase deploy --token $test;;
 
 cache:
   apt: true
